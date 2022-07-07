@@ -1,0 +1,6 @@
+@import 'variables.css';
+@import 'login.css';
+
+.hidden {
+    display : none;
+}
