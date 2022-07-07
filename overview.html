@@ -9,11 +9,17 @@
 </head>
 <body>
 	<header class="monthly-focus" >
-		<form class="hidden" id="monthlyFocusForm">
-            <input id="monthlyFocus" type="text" placeholder="Monthly Focus">
-            <input type="submit" value="✔">
-        </form>
-        <h1 class="hidden" id="monthlyFocusText"></h1>
+		<div class="monthly-focus__form">
+			<form class="hidden" id="monthlyFocusForm">
+				<input id="monthlyFocusInput" type="text" placeholder="Monthly Focus">
+				<input type="submit" value="✔">
+			</form>
+			<button class="hidden" id="monthlyFocusInputErase">💦</button>
+		</div>
+		<div class="monthly-focus__title">
+			<h1 class="hidden" id="monthlyFocusText"></h1>
+			<button class="hidden" id="monthlyFocusDelete">❌</button>
+		</div>
 	</header>
 	<main>
 

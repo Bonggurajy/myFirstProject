@@ -4,3 +4,11 @@
 .hidden {
     display : none;
 }
+
+.monthly-focus__title {
+    display : flex;
+}
+
+.monthly-focus__form {
+    display : flex;
+}
