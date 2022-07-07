@@ -2,13 +2,28 @@
 @import 'login.css';
 
 .hidden {
-    display : none;
+	display : none;
+}
+
+.monthly-focus {
+	display : flex;
+	justify-content: center;
+}
+
+#monthlyFocusInput {
+	all: unset;
+	border-bottom : 1px solid var(--sub-color);
+	text-align: center;
+	font-size : 20px;
+	box-sizing: border-box;
+	width : 600px;
+	height : 50px;
 }
 
 .monthly-focus__title {
-    display : flex;
+	display : flex;
 }
 
 .monthly-focus__form {
-    display : flex;
+	display : flex;
 }
