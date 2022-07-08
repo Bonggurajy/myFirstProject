@@ -4,25 +4,42 @@
 
 
 
-//variables
+//variables//
 const $monthlyTitleForm = document.querySelector('#monthlyTitleForm');
 const $monthlyTitleInput = document.querySelector('#monthlyTitleForm input');
 const $monthlyTitleHeader = document.querySelector('#monthlyTitleHeader');
 
 let monthlyTitle ;
 
-//functions
+//로컬 스토리지에 저장된 데이터가 존재하면 form을 숨기고, 존재하지 않다면 입력받을 form 노출시키기
+if(localStorage.getItem('monthlyTitle') === null) {
+  $monthlyTitleForm.classList.remove('hidden');
+}
+else{
+  monthlyTitle = localStorage.getItem('monthlyTitle');
+  paintMonthlyTitle();
+}
+
+
+
+
+//functions//
+
+//input값 기억하기
 function onInputMonthlyTitle (event) {
   monthlyTitle = event.target.value;
 }
 
+//submit 시 form 숨기고 title 출력(paintMonthlyTitle함수 이용)하기
 function handleSubmitMonthlyTitle (event) {
   event.preventDefault();
   $monthlyTitleForm.classList.add('hidden');
+  localStorage.setItem('monthlyTitle', monthlyTitle);
 
   paintMonthlyTitle();
 }
 
+//화면에 Title 출력하기//
 function paintMonthlyTitle() {
   const div = document.createElement('div');
   const span = document.createElement('span');
@@ -38,6 +55,6 @@ function paintMonthlyTitle() {
 
 
 
-//Eventlisteners
+//Eventlisteners//
 $monthlyTitleInput.addEventListener('input', onInputMonthlyTitle)
 $monthlyTitleForm.addEventListener('submit', handleSubmitMonthlyTitle)
