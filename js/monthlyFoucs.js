@@ -8,6 +8,7 @@
 const $monthlyTitleForm = document.querySelector('#monthlyTitleForm');
 const $monthlyTitleInput = document.querySelector('#monthlyTitleForm input');
 const $monthlyTitleHeader = document.querySelector('#monthlyTitleHeader');
+const $MonthlyTitleEditBtn = document.querySelector('#MonthlyTitleEditBtn');
 
 let monthlyTitle ;
 
@@ -44,17 +45,24 @@ function paintMonthlyTitle() {
   const div = document.createElement('div');
   const span = document.createElement('span');
   span.innerText = monthlyTitle;
-  const button = document.createElement('button');
-  button.innerText = '💬';
+  $MonthlyTitleEditBtn.classList.remove('hidden');
+
 
   div.appendChild(span);
-  div.appendChild(button);
-  $monthlyTitleHeader.appendChild(div);
+  $monthlyTitleHeader.prepend(div);
+}
+
+function onClickMonthlyTitleEditBtn() {
+  const div = document.querySelector('header div');
+  $monthlyTitleHeader.removeChild(div);
+  localStorage.removeItem('monthlyTitle');
+  $monthlyTitleForm.classList.remove('hidden');
+  $MonthlyTitleEditBtn.classList.add('hidden');
 }
 
 
 
-
 //Eventlisteners//
-$monthlyTitleInput.addEventListener('input', onInputMonthlyTitle)
-$monthlyTitleForm.addEventListener('submit', handleSubmitMonthlyTitle)
+$monthlyTitleInput.addEventListener('input', onInputMonthlyTitle);
+$monthlyTitleForm.addEventListener('submit', handleSubmitMonthlyTitle);
+$MonthlyTitleEditBtn.addEventListener('click', onClickMonthlyTitleEditBtn);
