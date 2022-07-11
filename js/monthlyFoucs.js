@@ -11,10 +11,11 @@ const $monthlyTitleHeader = document.querySelector('#monthlyTitleHeader');
 const $MonthlyTitleEditBtn = document.querySelector('#MonthlyTitleEditBtn');
 
 let monthlyTitle ;
+const HIDDEN_CLASS = 'hidden';
 
 //로컬 스토리지에 저장된 데이터가 존재하면 form을 숨기고, 존재하지 않다면 입력받을 form 노출시키기
 if(localStorage.getItem('monthlyTitle') === null) {
-  $monthlyTitleForm.classList.remove('hidden');
+  $monthlyTitleForm.classList.remove(HIDDEN_CLASS);
 }
 else{
   monthlyTitle = localStorage.getItem('monthlyTitle');
@@ -34,7 +35,7 @@ function onInputMonthlyTitle (event) {
 //submit 시 form 숨기고 title 출력(paintMonthlyTitle함수 이용)하기
 function handleSubmitMonthlyTitle (event) {
   event.preventDefault();
-  $monthlyTitleForm.classList.add('hidden');
+  $monthlyTitleForm.classList.add(HIDDEN_CLASS);
   localStorage.setItem('monthlyTitle', monthlyTitle);
 
   paintMonthlyTitle();
@@ -45,7 +46,7 @@ function paintMonthlyTitle() {
   const div = document.createElement('div');
   const span = document.createElement('span');
   span.innerText = monthlyTitle;
-  $MonthlyTitleEditBtn.classList.remove('hidden');
+  $MonthlyTitleEditBtn.classList.remove(HIDDEN_CLASS);
 
 
   div.appendChild(span);
@@ -56,8 +57,8 @@ function onClickMonthlyTitleEditBtn() {
   const div = document.querySelector('header div');
   $monthlyTitleHeader.removeChild(div);
   localStorage.removeItem('monthlyTitle');
-  $monthlyTitleForm.classList.remove('hidden');
-  $MonthlyTitleEditBtn.classList.add('hidden');
+  $monthlyTitleForm.classList.remove(HIDDEN_CLASS);
+  $MonthlyTitleEditBtn.classList.add(HIDDEN_CLASS);
 }
 
 
